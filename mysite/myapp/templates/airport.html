@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Airport_ID</th>
+      <th scope="col">City</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for airport in airports %}
+    <tr>
+      <td>{{airport.airport_ID}}</td>
+      <td>{{airport.city_name}}</td>
+      <td>
+        <button type="button" class="btn btn-info" formmethod="">Edit</button>
+        <button type="button" class="btn btn-info">Delete</button>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<form method="post" action="AirportApi">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Airport_ID</label>
+    <input name="airport_ID" type="text" value={{temp.airport_ID}}>
+    <small id="emailHelp" class="form-text text-muted">Go to airport city for airport name</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">City Name</label>
+    <input name="airport_ID" type="text" value={{temp.city_name}}>
+    <small id="emailHelp" class="form-text text-muted">/small>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
